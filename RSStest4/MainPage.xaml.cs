@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Data.Xml.Dom;
@@ -49,11 +50,17 @@ namespace RSStest4
                 var rssSubNode = rssNode.SelectSingleNode("title");
                 var title = rssSubNode != null ? rssSubNode.InnerText : "";
 
-                rssContent.AppendLine($"{title}");
+                rssContent.AppendLine(GetTrendFromTitle(title));
             }
 
             // Return the string that contain the RSS items
             await UpdateTextBox(rssContent.ToString());
+        }
+
+        private string GetTrendFromTitle(string title) {
+            var match = Regex.Match(title, @"Trend: (stijgend|stabiel|dalend)");
+            var trend = match.Groups[1];
+            return trend.Value;
         }
     }
 }
