@@ -10,7 +10,7 @@
 
     <Grid>
         <Button Content="Button" Click="Button_Click" HorizontalAlignment="Left" Margin="72,57,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtRSS" HorizontalAlignment="Left" Margin="72,133,0,0" Text="TextBox" VerticalAlignment="Top" Height="96" Width="126"/>
+        <TextBox Name="txtRSS" HorizontalAlignment="Center" Margin="0,133,0,0" Text="" VerticalAlignment="Top" Height="276" Width="340"/>
 
     </Grid>
 </Page>
